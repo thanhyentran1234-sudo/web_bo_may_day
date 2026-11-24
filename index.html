@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LIÊN QUÂN MOBILE | GAMING WORLD</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #080e1b;
+    color: white;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(90deg,#101d36,#162e50);
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #d6a63c;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #ffc84d;
+    letter-spacing: 2px;
+}
+
+.logo span { color: white; }
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+nav button {
+    background: transparent;
+    color: white;
+    border: none;
+    padding: 12px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: .3s;
+}
+
+nav button:hover,
+nav button.active {
+    background: #d6a63c;
+    color: #10182a;
+}
+
+/* HERO */
+.hero {
+    min-height: 430px;
+    display: flex;
+    align-items: center;
+    padding: 60px 9%;
+    background:
+    linear-gradient(90deg,rgba(5,10,25,.95),rgba(5,10,25,.3)),
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTtpjTPvHGs0qTexzo376WmFHRMpkGqcu-MgmBfX1jlA&s")
+    center/cover;
+}
+
+.hero-content { max-width: 650px; }
+
+.hero h1 {
+    font-size: 52px;
+    color: #ffcf58;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #e2e8f0;
+}
+
+.hero button {
+    margin-top: 25px;
+    background: #d9a52e;
+    color: #10182a;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* MAIN */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 45px 20px;
+}
+
+.page {
+    display: none;
+    animation: fade .4s ease;
+}
+
+.page.active { display: block; }
+
+@keyframes fade {
+    from {opacity:0; transform:translateY(12px);}
+    to {opacity:1; transform:translateY(0);}
+}
+
+.section-title {
+    color: #ffcb52;
+    font-size: 30px;
+    margin-bottom: 15px;
+    border-left: 5px solid #dba937;
+    padding-left: 15px;
+}
+
+.description {
+    color: #bdc8d9;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+/* CARDS */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 22px;
+}
+
+.card {
+    background: #14233b;
+    border: 1px solid #263e5d;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #e9b743;
+    box-shadow: 0 8px 25px #0008;
+}
+
+.card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.card-content { padding: 18px; }
+
+.card h3 {
+    color: #ffd267;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #c4d0df;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* TABLE */
+.table-wrap { overflow-x: auto; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #14233b;
+}
+
+th {
+    background: #b88728;
+    color: #10182a;
+}
+
+th, td {
+    padding: 16px;
+    text-align: center;
+    border: 1px solid #35465f;
+}
+
+tr:hover { background: #203652; }
+
+/* INFO BOX */
+.info-box {
+    background: linear-gradient(120deg,#162c4c,#253d5d);
+    padding: 25px;
+    border-radius: 12px;
+    margin: 20px 0;
+    border-left: 5px solid #e7b541;
+    line-height: 1.8;
+}
+
+.tag {
+    display: inline-block;
+    background: #d6a63c;
+    color: #10182a;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 5px 3px;
+}
+
+.big-number {
+    font-size: 35px;
+    color: #ffd15b;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    background: #101c30;
+    padding: 30px;
+    color: #aab8ca;
+    border-top: 1px solid #d5a43b;
+}
+
+@media(max-width:750px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    nav { justify-content: center; }
+    .hero h1 { font-size: 35px; }
+    .hero { padding: 45px 6%; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">LIÊN QUÂN <span>MOBILE</span></div>
+    <nav>
+        <button class="active" onclick="showPage('home',this)">Trang chủ</button>
+        <button onclick="showPage('heroes',this)">Tướng</button>
+        <button onclick="showPage('roles',this)">Vai trò</button>
+        <button onclick="showPage('rank',this)">Xếp hạng</button>
+        <button onclick="showPage('items',this)">Trang bị</button>
+        <button onclick="showPage('strategy',this)">Chiến thuật</button>
+        <button onclick="showPage('tournament',this)">Giải đấu</button>
+    </nav>
+</header>
+
+<!-- BANNER -->
+<section class="hero">
+    <div class="hero-content">
+        <span class="tag">ARENA OF VALOR</span>
+        <h1>CHIẾN TRƯỜNG<br>LIÊN QUÂN MOBILE</h1>
+        <p>
+            Khám phá thế giới Liên Quân Mobile – nơi hội tụ
+            những vị tướng huyền thoại, những trận chiến
+            kịch tính và những chiến thuật đỉnh cao.
+        </p>
+        <button onclick="showPage('heroes')">
+            KHÁM PHÁ TƯỚNG →
+        </button>
+    </div>
+</section>
+
+<main class="container">
+
+<!-- TRANG CHỦ -->
+<section id="home" class="page active">
+    <h2 class="section-title">TỔNG QUAN LIÊN QUÂN MOBILE</h2>
+    <p class="description">
+        Liên Quân Mobile là trò chơi MOBA trên điện thoại,
+        nơi hai đội cạnh tranh bằng chiến thuật, kỹ năng cá nhân
+        và tinh thần đồng đội. Mục tiêu cuối cùng là phá hủy nhà chính
+        của đối phương để giành chiến thắng.
+    </p>
+
+    <div class="grid">
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwnnNgU56S8H_niwXqzkFCfAurKt5y5vWEMzO-F6TLPw&s=10">
+            <div class="card-content">
+                <h3>⚔️ Đấu trường 5v5</h3>
+                <p>Hai đội gồm năm người phối hợp để kiểm soát bản đồ và giành chiến thắng.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMtmR4UlT0KsOYgY3VyFfgLAktuOzhVPcE2uK56p5jgw&s=10">
+            <div class="card-content">
+                <h3>🔥 Kỹ năng cá nhân</h3>
+                <p>Rèn luyện phản xạ, khả năng xử lý tình huống và sử dụng kỹ năng.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmRJ5L-rSr6zdETzdxJDOBXjdSPVx1qoXQ9_MKDDm1NA&s=10">
+            <div class="card-content">
+                <h3>🏆 Chinh phục vinh quang</h3>
+                <p>Tham gia đấu hạng, nâng cao trình độ và hướng đến thứ hạng cao.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-box">
+        <h2>🎮 NHỮNG ĐIỀU LÀM NÊN LIÊN QUÂN</h2>
+        <p>
+            ✔ Hệ thống tướng đa dạng<br>
+            ✔ Nhiều vị trí và phong cách chiến đấu<br>
+            ✔ Bản đồ chiến thuật phong phú<br>
+            ✔ Những trận đấu cạnh tranh hấp dẫn<br>
+            ✔ Chế độ chơi dành cho nhiều đối tượng
+        </p>
+    </div>
+</section>
+
+<!-- TƯỚNG -->
+<section id="heroes" class="page">
+    <h2 class="section-title">THẾ GIỚI TƯỚNG</h2>
+    <p class="description">
+        Mỗi vị tướng có bộ kỹ năng, điểm mạnh và lối chơi riêng.
+        Hãy lựa chọn vị tướng phù hợp với chiến thuật của bạn.
+    </p>
+
+    <div class="grid">
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMov1W20HCipI88VyRXiZ6J5O-279fm3_qXd3qrhF_xg&s=10">
+            <div class="card-content">
+                <h3>⚔️ Nakroth</h3>
+                <span class="tag">SÁT THỦ</span>
+                <p>Cơ động, có khả năng áp sát và tiêu diệt mục tiêu nhanh.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxQfpM-_XwVH6NNc9xfDuOhbyuiyOLEHPYZd_O5gVjdPn6sXyg25w2rwgO&s=10">
+            <div class="card-content">
+                <h3>🔥 Liliana</h3>
+                <span class="tag">PHÁP SƯ</span>
+                <p>Có khả năng cấu rỉa và gây sát thương phép mạnh.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://lienquan.garena.vn/wp-content/uploads/2024/05/13506.jpg">
+            <div class="card-content">
+                <h3>🛡️ Thane</h3>
+                <span class="tag">ĐỠ ĐÒN</span>
+                <p>Sức chống chịu tốt, hỗ trợ mở giao tranh.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://lienquan.garena.vn/wp-content/uploads/2024/05/0c026845cdd6414fbd6c1bcb9fc70628660396d3c7f931.jpg">
+            <div class="card-content">
+                <h3>🏹 Violet</h3>
+                <span class="tag">XẠ THỦ</span>
+                <p>Gây sát thương vật lý từ xa và có khả năng thả diều.</p>
+            </div>
+        </div>
+    </div>
+    <p class="description">
+        Lưu ý: Hình ảnh minh họa trong bản mẫu chưa phải ảnh chính thức của các tướng.
+    </p>
+</section>
+
+<!-- VAI TRÒ -->
+<section id="roles" class="page">
+    <h2 class="section-title">CÁC VỊ TRÍ TRONG GAME</h2>
+    <p class="description">
+        Một đội hình hợp lý cần có sự kết hợp giữa các vị trí.
+    </p>
+
+    <div class="table-wrap">
+    <table>
+        <tr>
+            <th>Vị trí</th>
+            <th>Nhiệm vụ</th>
+            <th>Đặc điểm</th>
+        </tr>
+        <tr>
+            <td>🛡️ Đường Caesar</td>
+            <td>Đấu tay đôi, đẩy đường</td>
+            <td>Đấu sĩ, chống chịu</td>
+        </tr>
+        <tr>
+            <td>🌲 Đi rừng</td>
+            <td>Kiểm soát mục tiêu, gank</td>
+            <td>Sát thủ, đấu sĩ</td>
+        </tr>
+        <tr>
+            <td>🔮 Đường giữa</td>
+            <td>Hỗ trợ các đường</td>
+            <td>Pháp sư</td>
+        </tr>
+        <tr>
+            <td>🏹 Đường Rồng</td>
+            <td>Gây sát thương chủ lực</td>
+            <td>Xạ thủ</td>
+        </tr>
+        <tr>
+            <td>💚 Trợ thủ</td>
+            <td>Bảo vệ đồng đội, mở giao tranh</td>
+            <td>Đỡ đòn, hỗ trợ</td>
+        </tr>
+    </table>
+    </div>
+
+    <div class="info-box">
+        <h3>💡 MẸO XÂY DỰNG ĐỘI HÌNH</h3>
+        Không nên lựa chọn toàn sát thủ hoặc toàn pháp sư.
+        Cần cân bằng giữa sát thương, chống chịu và khả năng khống chế.
+    </div>
+</section>
+
+<!-- RANK -->
+<section id="rank" class="page">
+    <h2 class="section-title">HỆ THỐNG XẾP HẠNG</h2>
+    <p class="description">
+        Hành trình chinh phục những bậc rank và khẳng định kỹ năng.
+    </p>
+
+    <div class="grid">
+        <div class="card"><div class="card-content">
+            <div class="big-number">Ⅰ</div>
+            <h3>Đồng</h3><p>Bắt đầu hành trình.</p>
+        </div></div>
+        <div class="card"><div class="card-content">
+            <div class="big-number">Ⅱ</div>
+            <h3>Bạc</h3><p>Làm quen chiến thuật.</p>
+        </div></div>
+        <div class="card"><div class="card-content">
+            <div class="big-number">Ⅲ</div>
+            <h3>Vàng</h3><p>Cải thiện kỹ năng.</p>
+        </div></div>
+        <div class="card"><div class="card-content">
+            <div class="big-number">Ⅳ</div>
+            <h3>Bạch Kim</h3><p>Nâng cao tư duy.</p>
+        </div></div>
+        <div class="card"><div class="card-content">
+            <div class="big-number">Ⅴ</div>
+            <h3>Kim Cương</h3><p>Thi đấu cạnh tranh.</p>
+        </div></div>
+        <div class="card"><div class="card-content">
+            <div class="big-number">Ⅵ</div>
+            <h3>Tinh Anh</h3><p>Thể hiện bản lĩnh.</p>
+        </div></div>
+        <div class="card"><div class="card-content">
+            <div class="big-number">Ⅶ</div>
+            <h3>Cao Thủ</h3><p>Chinh phục thứ hạng cao.</p>
+        </div></div>
+        <div class="card"><div class="card-content">
+            <div class="big-number">Ⅷ</div>
+            <h3>Thách Đấu</h3><p>Khẳng định đẳng cấp.</p>
+        </div></div>
+    </div>
+    <p class="description">
+        Thứ tự và điều kiện xếp hạng có thể thay đổi theo từng mùa giải.
+    </p>
+</section>
+
+<!-- TRANG BỊ -->
+<section id="items" class="page">
+    <h2 class="section-title">TRANG BỊ VÀ BẢNG NGỌC</h2>
+    <p class="description">
+        Trang bị phù hợp giúp tướng phát huy tối đa sức mạnh.
+    </p>
+
+    <div class="grid">
+        <div class="card"><div class="card-content">
+            <h3>⚔️ Công vật lý</h3>
+            <p>Tăng khả năng gây sát thương vật lý.</p>
+        </div></div>
+        <div class="card"><div class="card-content">
+            <h3>🔮 Công phép</h3>
+            <p>Tăng sức mạnh phép thuật.</p>
+        </div></div>
+        <div class="card"><div class="card-content">
+            <h3>🛡️ Phòng thủ</h3>
+            <p>Tăng giáp, máu và khả năng sống sót.</p>
+        </div></div>
+        <div class="card"><div class="card-content">
+            <h3>💨 Tốc độ</h3>
+            <p>Hỗ trợ di chuyển và tốc độ đánh.</p>
+        </div></div>
+    </div>
+
+    <div class="info-box">
+        <h3>🌟 CÁC NHÓM NGỌC</h3>
+        <p>
+            🔴 Ngọc đỏ: Tăng các chỉ số tấn công.<br>
+            🟣 Ngọc tím: Tăng tốc độ, máu hoặc hút máu.<br>
+            🟢 Ngọc lục: Tăng xuyên giáp, phòng thủ hoặc công phép.
+        </p>
+    </div>
+</section>
+
+<!-- CHIẾN THUẬT -->
+<section id="strategy" class="page">
+    <h2 class="section-title">CẨM NANG CHIẾN THUẬT</h2>
+
+    <div class="info-box">
+        <h3>1. Kiểm soát bản đồ</h3>
+        <p>Thường xuyên quan sát minimap để nắm bắt vị trí đối phương và tránh bị gank.</p>
+    </div>
+
+    <div class="info-box">
+        <h3>2. Kiểm soát mục tiêu lớn</h3>
+        <p>Phối hợp đồng đội để tranh chấp Rồng và Caesar đúng thời điểm.</p>
+    </div>
+
+    <div class="info-box">
+        <h3>3. Giao tranh tổng</h3>
+        <p>Ưu tiên bảo vệ chủ lực, tận dụng kỹ năng khống chế và chọn thời điểm tấn công hợp lý.</p>
+    </div>
+
+    <div class="info-box">
+        <h3>4. Phối hợp đồng đội</h3>
+        <p>Không nên giao tranh đơn lẻ khi thiếu thông tin hoặc không có đồng đội hỗ trợ.</p>
+    </div>
+</section>
+
+<!-- GIẢI ĐẤU -->
+<section id="tournament" class="page">
+    <h2 class="section-title">THẾ GIỚI ESPORTS</h2>
+    <p class="description">
+        Esports Liên Quân là nơi những đội tuyển chuyên nghiệp
+        cạnh tranh để khẳng định vị thế.
+    </p>
+
+    <div class="grid">
+        <div class="card">
+            <img src="https://genk.mediacdn.vn/2017/photo-1-1511431528056.jpg">
+            <div class="card-content">
+                <h3>🏆 Đấu trường chuyên nghiệp</h3>
+                <p>Những trận đấu đỉnh cao giữa các đội tuyển.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?w=700">
+            <div class="card-content">
+                <h3>🔥 Thi đấu đồng đội</h3>
+                <p>Chiến thuật và sự phối hợp quyết định kết quả.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBSjfGVnFYd4zAEJYSWg-5_9r9Xz4cYmt51MlaIxgi2g&s=10">
+            <div class="card-content">
+                <h3>🥇 Chinh phục chức vô địch</h3>
+                <p>Hành trình đến với những danh hiệu danh giá.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <h3 style="color:#ffcb52">LIÊN QUÂN MOBILE - GAMING WORLD</h3>
+    <p>Khám phá chiến thuật - Làm chủ kỹ năng - Chinh phục đấu trường</p>
+    <p style="margin-top:12px">Website giới thiệu game mang tính chất tham khảo và phi thương mại.</p>
+    <p>© 2026 - Fan-made Website</p>
+</footer>
+
+<script>
+function showPage(pageId, button) {
+
+    // Ẩn tất cả nội dung
+    document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+    });
+
+    // Hiện nội dung được chọn
+    document.getElementById(pageId).classList.add('active');
+
+    // Xóa trạng thái menu cũ
+    document.querySelectorAll('nav button').forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    // Đánh dấu menu đang chọn
+    if(button) {
+        button.classList.add('active');
+    }
+
+    // Cuộn về đầu phần nội dung
+    document.querySelector('.container').scrollIntoView({
+        behavior: 'smooth'
+    });
+}
+</script>
+
+</body>
+</html>
